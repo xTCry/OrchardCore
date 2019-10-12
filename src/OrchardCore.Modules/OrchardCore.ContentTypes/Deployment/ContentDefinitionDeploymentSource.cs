@@ -8,7 +8,7 @@ using YesSql;
 
 namespace OrchardCore.ContentTypes.Deployment
 {
-    public class ContentDefinitionDeploymentSource : IDeploymentSource
+    public class ContentDefinitionDeploymentSource : DeploymentSourceBase
     {
         private readonly IContentDefinitionStore _contentDefinitionStore;
 
@@ -17,9 +17,7 @@ namespace OrchardCore.ContentTypes.Deployment
             _contentDefinitionStore = contentDefinitionStore;
         }
 
-        public int Order { get; }
-
-        public async Task ProcessDeploymentStepAsync(DeploymentStep step, DeploymentPlanResult result)
+        public override async Task ProcessDeploymentStepAsync(DeploymentStep step, DeploymentPlanResult result)
         {
             if (!(step is ContentDefinitionDeploymentStep contentDefinitionStep))
             {
