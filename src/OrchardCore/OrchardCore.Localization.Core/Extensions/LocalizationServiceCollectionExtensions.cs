@@ -1,7 +1,9 @@
 using System;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
 using OrchardCore.Localization.PortableObject;
 
@@ -40,6 +42,36 @@ namespace Microsoft.Extensions.DependencyInjection
             if (setupAction != null)
             {
                 services.Configure(setupAction);
+            }
+
+            return services;
+        }
+
+        public static IServiceCollection AddDataAnnotationsPortableObjectLocalization(this IServiceCollection services)
+        {
+            Action<MvcDataAnnotationsLocalizationOptions> setupAction = options => {
+                var serviceProvider = services.BuildServiceProvider();
+                var localizer = serviceProvider.GetService<IStringLocalizer>();
+                options.DataAnnotationLocalizerProvider = (t, f) => localizer;
+            };
+
+            return AddDataAnnotationsLocalization(services, setupAction);
+        }
+
+        internal static IServiceCollection AddDataAnnotationsLocalization(
+            IServiceCollection services,
+            Action<MvcDataAnnotationsLocalizationOptions> setupAction)
+        {
+            if (setupAction != null)
+            {
+                services.Configure(setupAction);
+            }
+            else
+            {
+                services.TryAddEnumerable(
+                    ServiceDescriptor.Transient
+                    <IConfigureOptions<MvcDataAnnotationsLocalizationOptions>,
+                    MvcDataAnnotationsLocalizationOptionsSetup>());
             }
 
             return services;

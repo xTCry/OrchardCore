@@ -27,6 +27,7 @@ namespace OrchardCore.Localization
             services.AddScoped<ILocalizationService, LocalizationService>();
 
             services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+            services.AddDataAnnotationsPortableObjectLocalization();
             services.Replace(ServiceDescriptor.Singleton<ILocalizationFileLocationProvider, ModularPoFileLocationProvider>());
         }
 
