@@ -1,0 +1,4 @@
+#: OrchardCore.Tests.Localization\DataAnnotationsLocalizationTests.cs:77
+msgctxt "OrchardCore.Tests.Localization.DataAnnotationsLocalizationTests.Model"
+msgid "Hello"
+msgstr "مرحبا"
