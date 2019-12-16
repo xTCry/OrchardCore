@@ -17,6 +17,8 @@ namespace OrchardCore.ContentTypes.Deployment
             _contentDefinitionStore = contentDefinitionStore;
         }
 
+        public override int Order => -900;
+
         public override async Task ProcessDeploymentStepAsync(DeploymentStep step, DeploymentPlanResult result)
         {
             if (!(step is ContentDefinitionDeploymentStep contentDefinitionStep))
