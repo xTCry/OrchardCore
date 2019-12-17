@@ -35,7 +35,6 @@ namespace OrchardCore.Localization.PortableObject
         public IStringLocalizer Create(Type resourceSource)
         {
             var resourceFullName = resourceSource.FullName;
-            TryFixInnerClassPath(ref resourceFullName);
 
             return new PortableObjectStringLocalizer(resourceFullName, _localizationManager, _fallBackToParentCulture, _logger);
         }
@@ -43,8 +42,6 @@ namespace OrchardCore.Localization.PortableObject
         /// <inheritedoc />
         public IStringLocalizer Create(string baseName, string location)
         {
-            TryFixInnerClassPath(ref baseName);
-
             var index = 0;
             if (baseName.StartsWith(location, StringComparison.OrdinalIgnoreCase))
             {
@@ -64,15 +61,6 @@ namespace OrchardCore.Localization.PortableObject
             var relativeName = baseName.Substring(index);
 
             return new PortableObjectStringLocalizer(relativeName, _localizationManager, _fallBackToParentCulture, _logger);
-        }
-
-        // The context within inner class
-        private void TryFixInnerClassPath(ref string context)
-        {
-            if(context.Contains('+')) 
-            {
-                context = context.Replace('+', '.');
-            }
         }
     }
 }

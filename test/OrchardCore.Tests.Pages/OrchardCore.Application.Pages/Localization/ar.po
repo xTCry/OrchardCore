@@ -1,0 +1,4 @@
+#: OrchardCore.Application.Pages.ViewModels\LoginViewModel.cs:53
+msgctxt "OrchardCore.Application.Pages.ViewModels.LoginViewModel"
+msgid "The Username field is required."
+msgstr "حقل إسم المستخدم مطلوب."

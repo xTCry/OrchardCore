@@ -1,0 +1,36 @@
+@page
+
+@using System.ComponentModel.DataAnnotations
+
+@functions {
+    [Required(ErrorMessage = "The Username field is required.")]
+    public string Username { get; set; }
+
+    public string Password { get; set; }
+
+    public void OnGet()
+    {
+
+    }
+
+    public void OnPost()
+    {
+
+    }
+}
+
+<h1>Login Page</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Username">Name</label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <input type="submit" value="Login" />
+</form>
