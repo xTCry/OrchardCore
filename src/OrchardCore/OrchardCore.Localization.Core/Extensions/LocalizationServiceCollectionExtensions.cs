@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
 using OrchardCore.Localization.PortableObject;
 
@@ -56,14 +57,18 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(services));
             }
 
-            void setupAction(MvcDataAnnotationsLocalizationOptions options)
-            {
-                var serviceProvider = services.BuildServiceProvider();
-                var localizer = serviceProvider.GetService<IStringLocalizerFactory>().Create(typeof(PortableObjectStringLocalizer));
-                options.DataAnnotationLocalizerProvider = (t, f) => localizer;
-            }
+            services.AddSingleton<IConfigureOptions<MvcDataAnnotationsLocalizationOptions>, PortableObjectMvcDataAnnotationsLocalizationOptions>();
 
-            return services.Configure<MvcDataAnnotationsLocalizationOptions>(setupAction);
+            return services;
+
+            //void setupAction(MvcDataAnnotationsLocalizationOptions options)
+            //{
+            //    var serviceProvider = services.BuildServiceProvider();
+            //    var localizer = serviceProvider.GetService<IStringLocalizerFactory>().Create(typeof(PortableObjectStringLocalizer));
+            //    options.DataAnnotationLocalizerProvider = (t, f) => localizer;
+            //}
+
+            //return services.Configure<MvcDataAnnotationsLocalizationOptions>(setupAction);
         }
     }
 }
