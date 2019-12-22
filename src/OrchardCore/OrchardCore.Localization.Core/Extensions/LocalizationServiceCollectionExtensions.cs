@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
 using OrchardCore.Localization.PortableObject;
 
@@ -14,7 +13,6 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class LocalizationServiceCollectionExtensions
     {
-
         /// <summary>
         /// Registers the services to enable localization using Portable Object files.
         /// </summary>
@@ -47,34 +45,25 @@ namespace Microsoft.Extensions.DependencyInjection
             return services;
         }
 
+        /// <summary>
+        /// Localize data annotations attributes from portable object files.  
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         public static IServiceCollection AddDataAnnotationsPortableObjectLocalization(this IServiceCollection services)
         {
-            Action<MvcDataAnnotationsLocalizationOptions> setupAction = options => {
+            if (services is null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
+
+            void setupAction(MvcDataAnnotationsLocalizationOptions options)
+            {
                 var serviceProvider = services.BuildServiceProvider();
-                var localizer = serviceProvider.GetService<IStringLocalizer>();
+                var localizer = serviceProvider.GetService<IStringLocalizerFactory>().Create(typeof(PortableObjectStringLocalizer));
                 options.DataAnnotationLocalizerProvider = (t, f) => localizer;
-            };
-
-            return AddDataAnnotationsLocalization(services, setupAction);
-        }
-
-        internal static IServiceCollection AddDataAnnotationsLocalization(
-            IServiceCollection services,
-            Action<MvcDataAnnotationsLocalizationOptions> setupAction)
-        {
-            if (setupAction != null)
-            {
-                services.Configure(setupAction);
-            }
-            else
-            {
-                services.TryAddEnumerable(
-                    ServiceDescriptor.Transient
-                    <IConfigureOptions<MvcDataAnnotationsLocalizationOptions>,
-                    MvcDataAnnotationsLocalizationOptionsSetup>());
             }
 
-            return services;
+            return services.Configure<MvcDataAnnotationsLocalizationOptions>(setupAction);
         }
     }
 }
