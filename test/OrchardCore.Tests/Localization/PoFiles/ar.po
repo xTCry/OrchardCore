@@ -1,4 +1,0 @@
-#: OrchardCore.Tests.Localization\UserViewModel.cs:53
-msgctxt "OrchardCore.Tests.Localization.UserViewModel"
-msgid "The Name field is required."
-msgstr "حقل الإسم مطلوب."

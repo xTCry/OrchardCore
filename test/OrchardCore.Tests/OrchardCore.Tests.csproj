@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\src\OrchardCore.Build\Dependencies.props" />
 
@@ -59,7 +59,6 @@
     <ProjectReference Include="..\OrchardCore.Tests.Modules\DerivedThemeSample\DerivedThemeSample.csproj" />
     <ProjectReference Include="..\OrchardCore.Tests.Modules\DerivedThemeSample2\DerivedThemeSample2.csproj" />
     <ProjectReference Include="..\OrchardCore.Tests.Modules\ModuleSample\ModuleSample.csproj" />
-    <ProjectReference Include="..\OrchardCore.Tests.Pages\OrchardCore.Application.Pages\OrchardCore.Application.Pages.csproj" />
   </ItemGroup>
 
   <ItemGroup>
