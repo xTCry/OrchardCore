@@ -60,15 +60,6 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IConfigureOptions<MvcDataAnnotationsLocalizationOptions>, PortableObjectMvcDataAnnotationsLocalizationOptions>();
 
             return services;
-
-            //void setupAction(MvcDataAnnotationsLocalizationOptions options)
-            //{
-            //    var serviceProvider = services.BuildServiceProvider();
-            //    var localizer = serviceProvider.GetService<IStringLocalizerFactory>().Create(typeof(PortableObjectStringLocalizer));
-            //    options.DataAnnotationLocalizerProvider = (t, f) => localizer;
-            //}
-
-            //return services.Configure<MvcDataAnnotationsLocalizationOptions>(setupAction);
         }
     }
 }
