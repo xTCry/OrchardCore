@@ -1,10 +1,11 @@
 using System;
-using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
+using OrchardCore.Localization.DataAnnotations;
 using OrchardCore.Localization.PortableObject;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -57,7 +58,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(services));
             }
 
-            services.AddSingleton<IConfigureOptions<MvcDataAnnotationsLocalizationOptions>, PortableObjectMvcDataAnnotationsLocalizationOptions>();
+            services.AddSingleton<IConfigureOptions<MvcOptions>, LocalizedDataAnnotationsMvcOptions>();
 
             return services;
         }
