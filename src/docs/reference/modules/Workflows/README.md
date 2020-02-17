@@ -241,7 +241,7 @@ The following activities are available with any default Orchard installation:
 | Create Content | Task | Create a content item. | [link] |
 | Delete Content | Task | Delete a content item. | [link] |
 | Publish Content | Task | Publish a content item. | [link] |
-**User** | * | * | * |
+| **User** | * | * | * |
 | ValidateUser | Task | Used to check if the user is logged in and has the specified role(s). | [link] |
 
 ## Developing Custom Activities
