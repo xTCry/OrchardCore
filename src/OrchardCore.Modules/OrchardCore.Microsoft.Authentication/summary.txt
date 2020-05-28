@@ -6,7 +6,7 @@ Services/: ...
 Settings/: settings data types.
 ViewModel/: links model and view of:
     azure AD settings, 
-    errors (error type, erro description), 
+    errors (error type, error description), 
     microsoft account settings (propertyes: app ID, app secret, callback path)
 Views/: UI layout template (cshtml -> ... -> html)
 AdminMenu.cs: (see file)
