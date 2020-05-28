@@ -5,8 +5,8 @@ XML-RPC is a remote procedure call (RPC) protocol which uses XML to encode its c
     * HomeController.cs
     * MetaWeblogContoller.cs
 * Services/: XML-RPC reader, writer
-    * XmlRpcReader.cs: "straction to read XML and convert it to rpc entities"
-    * XmlRpcWriter.cs: "bstraction to write XML based on rpc entities"
+    * XmlRpcReader.cs: "abstraction to read XML and convert it to rpc entities"
+    * XmlRpcWriter.cs: "abstraction to write XML based on rpc entities"
 * MethodCallModelBinder.cs: ...
     * `...write...`
 * Startup.cs: configures: +-
