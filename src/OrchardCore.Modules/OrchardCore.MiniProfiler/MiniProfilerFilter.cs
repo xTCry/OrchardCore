@@ -27,6 +27,8 @@ namespace OrchardCore.MiniProfiler
             if ((context.Result is ViewResult || context.Result is PageResult) &&
                 !AdminAttribute.IsApplied(context.HttpContext))
             {
+            
+            //add field to edit fotter position 
                 dynamic layout = await _layoutAccessor.GetLayoutAsync();
                 var footerZone = layout.Zones["Footer"];
                 footerZone.Add(await _shapeFactory.CreateAsync("MiniProfiler"));
