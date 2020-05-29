@@ -13,6 +13,7 @@ namespace OrchardCore.Markdown.Indexing
                 | DocumentIndexOptions.Analyze
                 ;
 
+            /// Setting options from context settings (with additional sanitize and analyze doc options) for fields.
             foreach (var key in context.Keys)
             {
                 context.DocumentIndex.Set(key, part.Markdown, options);
