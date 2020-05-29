@@ -10,6 +10,7 @@ namespace OrchardCore.Markdown.Indexing
         {
             var options = context.Settings.ToOptions();
 
+            /// Setting options from context settings for fields.
             foreach (var key in context.Keys)
             {
                 context.DocumentIndex.Set(key, field.Markdown, options);
