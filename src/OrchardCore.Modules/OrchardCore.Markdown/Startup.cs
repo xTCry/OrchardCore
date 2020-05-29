@@ -22,6 +22,7 @@ namespace OrchardCore.Markdown
     {
         static Startup()
         {
+            /// Register view model for Markdown in the global member access strategy
             TemplateContext.GlobalMemberAccessStrategy.Register<MarkdownBodyPartViewModel>();
             TemplateContext.GlobalMemberAccessStrategy.Register<MarkdownFieldViewModel>();
         }
@@ -44,6 +45,7 @@ namespace OrchardCore.Markdown
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, MarkdownFieldSettingsDriver>();
             services.AddScoped<IContentFieldIndexHandler, MarkdownFieldIndexHandler>();
 
+            /// Add a liquid filter to converts a Markdown string to HTML.
             services.AddLiquidFilter<Markdownify>("markdownify");
         }
     }
