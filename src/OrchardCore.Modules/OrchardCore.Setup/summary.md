@@ -3,7 +3,7 @@ Assets/:\
 Contollers/:\
 ViewModels/:\
 Views/:\
-wwwroot/:\
+* wwwroot/:
     * Icons\: .\
     * Sctipts\: JS frameworks? (normal/min ver.) { jQuery }\
     * Styles\: Bootstrap (html/css style kit)\
