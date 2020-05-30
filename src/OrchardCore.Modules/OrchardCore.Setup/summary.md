@@ -1,5 +1,6 @@
-Annotations/:\
-* Assets/:\
+* Annotations/:\
+    * SiteNameValidAttribute.cs: site name validation (boolean validation method, string error message method)
+* Assets/: (JS/SCSS)\
     * js/:
         * setup.js
         * strength.js
