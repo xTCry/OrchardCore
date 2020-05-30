@@ -2,10 +2,10 @@
     * SiteNameValidAttribute.cs: site name validation (boolean validation method, string error message method)
 * Assets/: (JS/SCSS)\
     * js/:
-        * setup.js
-        * strength.js
+        * `setup.js`
+        * `strength.js`
     * scss/:
-        * setup.scss
+        * `setup.scss`
 * `Contollers/: ...\`
     * SetupContoller.cs: 
 * ViewModels/:
