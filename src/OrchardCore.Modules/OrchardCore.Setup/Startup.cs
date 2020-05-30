@@ -1,3 +1,7 @@
+/*
+    Setup localization settings
+*/
+
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
@@ -17,6 +21,9 @@ namespace OrchardCore.Setup
         private readonly string _defaultCulture;
         private string[] _supportedCultures;
 
+        /*
+            Culture setting
+        */
         public Startup(IShellConfiguration shellConfiguration)
         {
             var configurationSection = shellConfiguration.GetSection("OrchardCore.Setup");
@@ -24,7 +31,10 @@ namespace OrchardCore.Setup
             _defaultCulture = configurationSection["DefaultCulture"];
             _supportedCultures = configurationSection.GetSection("SupportedCultures").Get<string[]>();
         }
-
+        
+        /*
+            Configure...
+        */
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
@@ -33,6 +43,9 @@ namespace OrchardCore.Setup
             services.AddSetup();
         }
 
+        /*
+           Adding supported cultures (locales)
+        */
         public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             var localizationOptions = serviceProvider.GetService<IOptions<RequestLocalizationOptions>>().Value;
