@@ -14,9 +14,9 @@
   * `DynamicCacheTagHelper.cs`
     > ...html attributes caches...
   * `DynamicCacheTagHelperService.cs`
-    > Provide "workers" - concurrent (~ async access?) dictionary (string : task<IHtmlContent>)
+    > Provide "workers" - concurrent (async access?) dictionary (string : task<IHtmlContent>)
 * `CacheContextEntryExtensions.cs:` 
-  > provide "context hast" from cache context entries in foramat "<key><value> sequence"
+  > provide "context hash" from cache context entries in foramat "<key><value> sequence"
 * CachedShapeWrapperShapes.cs: 
   > FOR DEBUGGING PURPOSE. { html content builder, metadata, cache }
 * Manifest.cs: SKIP
