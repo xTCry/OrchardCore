@@ -2,8 +2,11 @@ BLOB - Binary Large Object (binary array)
 ---
 * CreateMediaBlobContainerEvent.cs:
   > 
+  * Task ActivateAsync()
+    > "Only create container if options are valid"
+      (no task returned, only logging)
 * Manifest.cs: SKIP
-* MediaBlobStorageOptions.cs:
+* `MediaBlobStorageOptions.cs:`
   > 
   * ConfigureServices()
     > "Only replace default implementation if options are valid;\
