@@ -5,7 +5,7 @@ BLOB - Binary Large Object (binary array)
   * Task ActivateAsync()
     > "Only create container if options are valid"\
       (no task returned, only logging, hmm)
-* Manifest.cs: SKIP
+* Manifest.cs: SKIPPED
 * `MediaBlobStorageOptions.cs:`
   > 
   * ConfigureServices()
@@ -22,6 +22,10 @@ BLOB - Binary Large Object (binary array)
     > check connection and container name for "null or whitespace" 
 * MediaBlobStorageOptionsConfiguration.cs:
   > 
-* OrchardCore.Media.Azure.csproj: SKIP
-* Startup.cs: 
+  * Configure()
+  * ParseContainerName()
+  * ParseBasePath()
+    > parse Azure Media storage OR log fail and throw exception
+* OrchardCore.Media.Azure.csproj: SKIPPED
+* `Startup.cs:         `
   > 
