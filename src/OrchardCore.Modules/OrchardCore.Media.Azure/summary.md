@@ -4,7 +4,7 @@ BLOB - Binary Large Object (binary array)
   > 
   * Task ActivateAsync()
     > "Only create container if options are valid"\
-      (no task returned, only logging)
+      (no task returned, only logging, hmm)
 * Manifest.cs: SKIP
 * `MediaBlobStorageOptions.cs:`
   > 
