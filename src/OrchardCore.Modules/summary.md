@@ -1,0 +1,15 @@
+* Admin
+* AdminMenu
+* BackgroundTasks
+* DynamicCache
+* Google
+* Markdown
+* Media.Azure
+* Menu
+* Microsoft.Authentication
+* MiniProfiler
+* HelloWorld
+* Settings
+* Setup
+* Themes
+* XmlRpc
