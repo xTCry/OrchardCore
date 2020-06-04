@@ -22,6 +22,7 @@ namespace OrchardCore.Themes
             }
 
             builder
+            //creation of new metods and classes
                 .Add(S["Design"], NavigationConstants.AdminMenuDesignPosition, design => design
                     .AddClass("themes").Id("themes")
                     .Permission(Permissions.ApplyTheme)
