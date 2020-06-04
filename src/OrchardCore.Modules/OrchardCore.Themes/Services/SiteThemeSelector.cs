@@ -20,6 +20,7 @@ namespace OrchardCore.Themes.Services
 
         public async Task<ThemeSelectorResult> GetThemeAsync()
         {
+           //records name of current theme
             string currentThemeName = await _siteThemeService.GetCurrentThemeNameAsync();
             if (String.IsNullOrEmpty(currentThemeName))
             {
