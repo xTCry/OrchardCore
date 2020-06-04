@@ -48,14 +48,16 @@ namespace OrchardCore.Themes
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             var themeControllerName = typeof(AdminController).ControllerName();
-
+            
+            //themes controller for admins
             routes.MapAreaControllerRoute(
                 name: "Themes.Index",
                 areaName: "OrchardCore.Themes",
                 pattern: _adminOptions.AdminUrlPrefix + "/Themes",
                 defaults: new { controller = themeControllerName, action = nameof(AdminController.Index) }
             );
-
+            
+            //activate current theme
             routes.MapAreaControllerRoute(
                 name: "Themes.SetCurrentTheme",
                 areaName: "OrchardCore.Themes",
@@ -63,6 +65,7 @@ namespace OrchardCore.Themes
                 defaults: new { controller = themeControllerName, action = nameof(AdminController.SetCurrentTheme) }
             );
 
+            //refresh theme
             routes.MapAreaControllerRoute(
                 name: "Themes.ResetSiteTheme",
                 areaName: "OrchardCore.Themes",
@@ -70,6 +73,7 @@ namespace OrchardCore.Themes
                 defaults: new { controller = themeControllerName, action = nameof(AdminController.ResetSiteTheme) }
             );
 
+            //refresh admin theme
             routes.MapAreaControllerRoute(
                 name: "Themes.ResetAdminTheme",
                 areaName: "OrchardCore.Themes",
@@ -77,13 +81,15 @@ namespace OrchardCore.Themes
                 defaults: new { controller = themeControllerName, action = nameof(AdminController.ResetAdminTheme) }
             );
 
+            //turns off admin controller
             routes.MapAreaControllerRoute(
                 name: "Themes.Disable",
                 areaName: "OrchardCore.Themes",
                 pattern: _adminOptions.AdminUrlPrefix + "/Themes/Disable/{id}",
                 defaults: new { controller = themeControllerName, action = nameof(AdminController.Disable) }
             );
-
+            
+            //turns on admin controller
             routes.MapAreaControllerRoute(
                 name: "Themes.Enable",
                 areaName: "OrchardCore.Themes",
